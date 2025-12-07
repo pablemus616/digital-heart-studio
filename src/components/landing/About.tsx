@@ -1,4 +1,4 @@
-import { Heart, Target, Users } from "lucide-react";
+import { Heart, Target, Users, Code2, Zap, Shield } from "lucide-react";
 
 const values = [
   {
@@ -16,6 +16,12 @@ const values = [
     title: "Socios, no proveedores",
     description: "Nos involucramos en tu visión. Tu crecimiento es también el nuestro.",
   },
+];
+
+const techStack = [
+  { icon: Code2, label: "Código limpio" },
+  { icon: Zap, label: "Velocidad" },
+  { icon: Shield, label: "Seguridad" },
 ];
 
 const About = () => {
@@ -66,31 +72,78 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right - Visual Element */}
-          <div className="relative">
-            <div className="relative aspect-square max-w-md mx-auto">
-              {/* Decorative circles */}
-              <div className="absolute inset-0 rounded-full border border-border/30 animate-pulse-slow" />
-              <div className="absolute inset-8 rounded-full border border-border/40" />
-              <div className="absolute inset-16 rounded-full border border-border/50" />
-              
-              {/* Center logo */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center glow-primary animate-float">
-                  <span className="text-6xl font-bold text-primary-foreground">G</span>
+          {/* Right - Abstract Code Visual */}
+          <div className="relative hidden lg:block">
+            <div className="relative">
+              {/* Terminal-like window */}
+              <div className="glass rounded-2xl overflow-hidden">
+                {/* Terminal header */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50 bg-secondary/30">
+                  <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                  <span className="ml-2 text-xs text-muted-foreground font-mono">gcloud.config.ts</span>
+                </div>
+                
+                {/* Code content */}
+                <div className="p-6 font-mono text-sm leading-relaxed">
+                  <div className="text-muted-foreground">
+                    <span className="text-accent">const</span>{" "}
+                    <span className="text-primary">tuProyecto</span>{" "}
+                    <span className="text-muted-foreground">=</span>{" "}
+                    <span className="text-accent">{"{"}</span>
+                  </div>
+                  <div className="ml-4 mt-2">
+                    <span className="text-foreground">diseño</span>
+                    <span className="text-muted-foreground">:</span>{" "}
+                    <span className="text-green-400">"único"</span>
+                    <span className="text-muted-foreground">,</span>
+                  </div>
+                  <div className="ml-4">
+                    <span className="text-foreground">hosting</span>
+                    <span className="text-muted-foreground">:</span>{" "}
+                    <span className="text-green-400">"99.9% uptime"</span>
+                    <span className="text-muted-foreground">,</span>
+                  </div>
+                  <div className="ml-4">
+                    <span className="text-foreground">soporte</span>
+                    <span className="text-muted-foreground">:</span>{" "}
+                    <span className="text-green-400">"24/7"</span>
+                    <span className="text-muted-foreground">,</span>
+                  </div>
+                  <div className="ml-4">
+                    <span className="text-foreground">pasión</span>
+                    <span className="text-muted-foreground">:</span>{" "}
+                    <span className="text-primary">Infinity</span>
+                    <span className="text-muted-foreground">,</span>
+                  </div>
+                  <div className="text-accent mt-2">{"}"}</div>
+                  
+                  <div className="mt-4 pt-4 border-t border-border/30">
+                    <span className="text-muted-foreground">// Resultado:</span>
+                    <div className="text-primary mt-1 animate-pulse">
+                      → Tu negocio transformado_
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Floating elements */}
-              <div className="absolute top-8 right-8 w-16 h-16 rounded-xl glass flex items-center justify-center animate-float" style={{ animationDelay: "1s" }}>
-                <span className="text-2xl">🇬🇹</span>
+              {/* Floating tech badges */}
+              <div className="absolute -top-4 -right-4 flex gap-2">
+                {techStack.map((tech, i) => (
+                  <div 
+                    key={i}
+                    className="glass rounded-lg px-3 py-2 flex items-center gap-2 animate-float"
+                    style={{ animationDelay: `${i * 0.5}s` }}
+                  >
+                    <tech.icon className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-medium">{tech.label}</span>
+                  </div>
+                ))}
               </div>
-              <div className="absolute bottom-8 left-8 w-16 h-16 rounded-xl glass flex items-center justify-center animate-float" style={{ animationDelay: "2s" }}>
-                <span className="text-2xl">✨</span>
-              </div>
-              <div className="absolute bottom-24 right-0 w-16 h-16 rounded-xl glass flex items-center justify-center animate-float" style={{ animationDelay: "0.5s" }}>
-                <span className="text-2xl">💻</span>
-              </div>
+
+              {/* Decorative gradient line */}
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-primary to-transparent rounded-full" />
             </div>
           </div>
         </div>
